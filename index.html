@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Fotográfico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Seção Hero (Inspirada na imagem) -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        
+        <!-- Efeito Vidro Central (Parece a viseira da imagem) -->
+        <div class="glass-band">
+            <div class="glass-reflection"></div>
+            <h1 class="brand-title">FOTÓGRAFO</h1>
+            <span class="brand-subtitle">Visual Storyteller</span>
+        </div>
+
+        <!-- Texto Inferior e Logotipo (Mantendo o minimalismo) -->
+        <div class="hero-footer">
+            <div class="logo-container">
+                <div class="circle-logo"></div>
+                <p class="logo-text">PHOTOGRAPHY</p>
+            </div>
+            
+            <div class="hero-info">
+                <div class="info-col">
+                    <span>ETHICAL</span>
+                    <span>VISUAL</span>
+                    <span>ART</span>
+                </div>
+                <div class="info-col">
+                    <span>SOURCED</span>
+                    <span>STUDIO</span>
+                    <span>WORK</span>
+                </div>
+                <div class="info-col">
+                    <span>MADE WITH</span>
+                    <span>PASSION</span>
+                    <span>ZERO LIMITS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Galeria (Portfólio do Fotógrafo) -->
+    <section class="gallery">
+        <h2 class="section-title">Portfólio</h2>
+        
+        <div class="gallery-grid">
+            <!-- Imagens de alta resolução para não perder qualidade -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" alt="Retrato 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=1000&auto=format&fit=crop" alt="Arte 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518843024185-3d4a2a2d0e71?q=80&w=1000&auto=format&fit=crop" alt="Retrato 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- Botões Flutuantes (Iguais aos da imagem) -->
+    <div class="floating-buttons">
+        <button class="float-btn" onclick="toggleZoom()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </button>
+        <button class="float-btn" onclick="expandGallery()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

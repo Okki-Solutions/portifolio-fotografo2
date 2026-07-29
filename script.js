@@ -2,6 +2,18 @@ const photoCards = document.querySelectorAll('.photo-card');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = lightbox?.querySelector('img');
 const closeButton = document.querySelector('.modal-close');
+const revealItems = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealItems.forEach((item) => revealObserver.observe(item));
 
 photoCards.forEach((card) => {
   card.addEventListener('click', () => {

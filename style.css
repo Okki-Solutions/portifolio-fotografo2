@@ -1,264 +1,212 @@
-/* Reset básico e definições de fonte */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg: #050505;
+  --panel: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #f5f5f5;
+  --muted: rgba(255, 255, 255, 0.7);
+  --accent: #d97a2e;
 }
 
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.5;
 }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-/* Seção Hero - Fundo texturizado escuro */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.4rem;
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.brand span { color: var(--accent); }
+.nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.nav a:hover { color: #fff; }
+
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Ocupa a tela toda */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Texto no fundo */
-    padding-bottom: 40px;
-    background-color: #121212;
-    /* Criando um fundo visual que imita a textura da imagem original */
-    background-image: radial-gradient(circle at 50% 30%, #2a2a2a 0%, #0a0a0a 100%);
-    overflow: hidden;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 5rem 1.4rem 2rem;
+  background: linear-gradient(120deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1800&q=80') center/cover no-repeat;
+}
+.hero-content {
+  text-align: center;
+  max-width: 780px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  margin: 0 0 1rem;
+}
+.hero h1 span { color: var(--accent); }
+.hero-copy {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 auto 2rem;
+  max-width: 620px;
+}
+.hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-dark { background: rgba(255,255,255,0.08); }
+.btn-accent { background: var(--accent); color: #111; font-weight: 700; }
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.5);
 }
 
-.hero-background {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="4" height="4" fill="%23ffffff" opacity="0.03"/></svg>');
-    z-index: 1;
-    pointer-events: none;
+.section {
+  padding: 5rem 1.4rem;
 }
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.section-heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 0.2rem 0 0.8rem;
+}
+.section-heading h2 span { color: var(--accent); }
+.section-heading p { color: var(--muted); }
 
-/* Efeito Vidro Central (A faixa horizontal brilhante) */
-.glass-band {
-    position: absolute;
-    top: 25%;
-    left: 10%;
-    right: 10%;
-    height: 20%;
-    background: rgba(255, 70, 0, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-    text-align: center;
+.about-grid, .services-grid, .contact-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
 }
-
-/* Simula o reflexo laranja dos óculos na imagem */
-.glass-reflection {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(255, 69, 0, 0.8), rgba(255, 200, 0, 0.2), rgba(255, 255, 255, 0.1));
-    mix-blend-mode: overlay;
-    border-radius: 20px;
-    opacity: 0.6;
-    z-index: -1;
+.about-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.contact-grid { grid-template-columns: 1.4fr 1fr; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.2rem;
 }
-
-.brand-title {
-    font-size: 3rem;
-    letter-spacing: 4px;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    font-weight: 300;
-    margin-bottom: 5px;
-}
-
-.brand-subtitle {
-    font-size: 1rem;
-    letter-spacing: 2px;
-    color: #fff;
-    opacity: 0.7;
-    font-weight: 300;
-}
-
-/* Rodapé da Seção Hero */
-.hero-footer {
-    position: relative;
-    z-index: 3;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #cccccc;
-}
-
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.circle-logo {
-    width: 40px;
-    height: 25px;
-    border: 2px solid white;
-    border-radius: 50%;
-    margin-bottom: 5px;
-}
-
-.hero-info {
-    display: flex;
-    gap: 40px;
-    line-height: 1.8;
-}
-
-.info-col {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-}
-
-/* GALERIA DE FOTOS - Responsiva e mantendo qualidade */
-.gallery {
-    padding: 80px 40px;
-    background-color: #0a0a0a;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: #555;
-}
+.about-card h3, .service-card h3 { margin-top: 0; }
+.about-card p, .service-card p, .info-card p { color: var(--muted); line-height: 1.7; }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.photo-card {
+  overflow: hidden;
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+}
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.photo-card:hover img { transform: scale(1.05); }
+
+.form-card input, .form-card textarea {
+  width: 100%;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+}
+.form-card button {
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.gallery-item {
-    width: 100%;
-    height: 350px;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    background: #1a1a1a;
+.footer {
+  text-align: center;
+  padding: 2rem 1.4rem 3rem;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.85rem;
 }
 
-.gallery-item:hover {
-    transform: scale(1.02);
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  place-items: center;
+  padding: 1rem;
+  z-index: 40;
+}
+.modal.open { display: grid; }
+.modal img {
+  max-width: min(92vw, 920px);
+  max-height: 86vh;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  border: 0;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1.8rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    display: block;
-    /* Garante renderização de alta qualidade em monitores de alta resolução */
-    image-rendering: auto; 
-}
-
-/* Botões Flutuantes inferiores direitos */
-.floating-buttons {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 100;
-}
-
-.float-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.float-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-/* Responsividade para Mobile */
 @media (max-width: 768px) {
-    .glass-band {
-        top: 20%;
-        left: 5%;
-        right: 5%;
-        height: 15%;
-        border-radius: 10px;
-    }
-    
-    .glass-reflection {
-        border-radius: 10px;
-    }
-
-    .brand-title {
-        font-size: 1.8rem;
-    }
-
-    .brand-subtitle {
-        font-size: 0.8rem;
-    }
-
-    .hero-footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 0 20px;
-    }
-
-    .hero-info {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .info-col {
-        text-align: center;
-        min-width: 60px;
-    }
-
-    /* Grade da galeria adaptada para mobile */
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .gallery-item {
-        height: 250px;
-    }
-
-    .floating-buttons {
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .float-btn {
-        width: 45px;
-        height: 45px;
-    }
+  .about-grid, .services-grid, .contact-grid, .gallery-grid { grid-template-columns: 1fr; }
 }

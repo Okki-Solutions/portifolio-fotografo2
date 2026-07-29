@@ -1,32 +1,33 @@
-// Funções simples para os botões flutuantes, simulando ações de Lightbox/Zoom
+const photoCards = document.querySelectorAll('.photo-card');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = lightbox?.querySelector('img');
+const closeButton = document.querySelector('.modal-close');
 
-function toggleZoom() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    // Simula um efeito de zoom ou abre um modal
-    // Aqui apenas alternamos uma classe para exemplo visual
-    galleryItems.forEach(item => {
-        item.classList.toggle('zoomed');
-        if (item.classList.contains('zoomed')) {
-            item.style.transform = "scale(1.05)";
-            item.style.transition = "transform 0.3s ease";
-        } else {
-            item.style.transform = "scale(1)";
-        }
-    });
-}
-
-function expandGallery() {
-    const gallerySection = document.querySelector('.gallery');
-    const grid = document.querySelector('.gallery-grid');
-    
-    // Simula a expansão para tela cheia
-    if (gallerySection.style.background === 'black') {
-        gallerySection.style.background = '#0a0a0a'; // Volta ao normal
-        grid.style.maxWidth = '1400px';
-    } else {
-        gallerySection.style.background = 'black'; // Tela cheia escura
-        grid.style.maxWidth = '100%'; // Expande o grid
-        grid.style.padding = '0 10px';
+photoCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    const imageUrl = card.getAttribute('data-image');
+    const alt = card.getAttribute('data-alt') || 'Imagem do portfólio';
+    if (lightbox && lightboxImage) {
+      lightboxImage.src = imageUrl || '';
+      lightboxImage.alt = alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
     }
+  });
+});
+
+function closeLightbox() {
+  if (lightbox) {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
 }
+
+if (closeButton) closeButton.addEventListener('click', closeLightbox);
+if (lightbox) lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeLightbox();
+});

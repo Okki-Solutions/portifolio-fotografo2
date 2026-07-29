@@ -1,88 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Fotográfico</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucas Rya | Portfólio Premium</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#hero">RYA<span>.</span></a>
+      <nav class="nav">
+        <a href="#about">Sobre</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#services">Serviços</a>
+        <a href="#contact">Contato</a>
+      </nav>
+    </header>
 
-    <!-- Seção Hero (Inspirada na imagem) -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        
-        <!-- Efeito Vidro Central (Parece a viseira da imagem) -->
-        <div class="glass-band">
-            <div class="glass-reflection"></div>
-            <h1 class="brand-title">FOTÓGRAFO</h1>
-            <span class="brand-subtitle">Visual Storyteller</span>
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Fotografia Premium</p>
+          <h1>Lucas <span>Rya</span></h1>
+          <p class="hero-copy">Capturando a essência do luxo e da emoção em cada frame.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#gallery">Ver Portfólio</a>
+            <a class="btn btn-accent" href="#contact">Entrar em Contato</a>
+          </div>
         </div>
+        <div class="scroll-indicator">Scroll</div>
+      </section>
 
-        <!-- Texto Inferior e Logotipo (Mantendo o minimalismo) -->
-        <div class="hero-footer">
-            <div class="logo-container">
-                <div class="circle-logo"></div>
-                <p class="logo-text">PHOTOGRAPHY</p>
-            </div>
-            
-            <div class="hero-info">
-                <div class="info-col">
-                    <span>ETHICAL</span>
-                    <span>VISUAL</span>
-                    <span>ART</span>
-                </div>
-                <div class="info-col">
-                    <span>SOURCED</span>
-                    <span>STUDIO</span>
-                    <span>WORK</span>
-                </div>
-                <div class="info-col">
-                    <span>MADE WITH</span>
-                    <span>PASSION</span>
-                    <span>ZERO LIMITS</span>
-                </div>
-            </div>
+      <section id="about" class="section about">
+        <div class="section-heading">
+          <p class="eyebrow">Sobre mim</p>
+          <h2>A arte de <span>contar histórias</span></h2>
+          <p>Mais de 8 anos de experiência em moda, lifestyle e casamentos com olhar artístico e elegante.</p>
         </div>
-    </section>
+        <div class="about-grid">
+          <div class="card about-card">
+            <h3>Identidade visual</h3>
+            <p>Combino técnica, luz e narrativa para criar imagens que emocionam e duram.</p>
+          </div>
+          <div class="card about-card">
+            <h3>Projetos</h3>
+            <p>120+ clientes atendidos, 450+ projetos realizados em campanhas e ensaios exclusivos.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Seção Galeria (Portfólio do Fotógrafo) -->
-    <section class="gallery">
-        <h2 class="section-title">Portfólio</h2>
-        
+      <section id="gallery" class="section gallery">
+        <div class="section-heading">
+          <p class="eyebrow">Portfólio</p>
+          <h2>Galeria <span>Premium</span></h2>
+        </div>
         <div class="gallery-grid">
-            <!-- Imagens de alta resolução para não perder qualidade -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 1">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 2">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" alt="Retrato 1">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=1000&auto=format&fit=crop" alt="Arte 1">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop" alt="Paisagem 3">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1518843024185-3d4a2a2d0e71?q=80&w=1000&auto=format&fit=crop" alt="Retrato 2">
-            </div>
+          <article class="photo-card" data-image="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80" data-alt="Editorial de moda">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" alt="Editorial de moda" loading="lazy" />
+          </article>
+          <article class="photo-card" data-image="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" data-alt="Retrato artístico">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80" alt="Retrato artístico" loading="lazy" />
+          </article>
+          <article class="photo-card" data-image="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200&q=80" data-alt="Lifestyle urbano">
+            <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&q=80" alt="Lifestyle urbano" loading="lazy" />
+          </article>
+          <article class="photo-card" data-image="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1200&q=80" data-alt="Moda e movimento">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80" alt="Moda e movimento" loading="lazy" />
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- Botões Flutuantes (Iguais aos da imagem) -->
-    <div class="floating-buttons">
-        <button class="float-btn" onclick="toggleZoom()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-        </button>
-        <button class="float-btn" onclick="expandGallery()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-        </button>
+      <section id="services" class="section services">
+        <div class="section-heading">
+          <p class="eyebrow">Serviços</p>
+          <h2>O que <span>ofereço</span></h2>
+        </div>
+        <div class="services-grid">
+          <div class="card service-card">
+            <h3>Moda</h3>
+            <p>Ensaios editoriais com direção criativa e estética forte.</p>
+          </div>
+          <div class="card service-card">
+            <h3>Casamentos</h3>
+            <p>Registro emocional e sofisticado dos momentos mais especiais.</p>
+          </div>
+          <div class="card service-card">
+            <h3>Portraits</h3>
+            <p>Retratos naturais que traduzem personalidade e presença.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contato</p>
+          <h2>Vamos <span>conversar</span></h2>
+        </div>
+        <div class="contact-grid">
+          <form class="card form-card">
+            <input type="text" placeholder="Seu nome" />
+            <input type="email" placeholder="Seu e-mail" />
+            <textarea rows="4" placeholder="Conte-me sobre seu projeto..."></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div class="card info-card">
+            <p><strong>E-mail:</strong> contato@lucasrya.com</p>
+            <p><strong>Telefone:</strong> +55 (11) 99999-9999</p>
+            <p><strong>Localização:</strong> São Paulo, Brasil</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Lucas Rya. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="modal" id="lightbox" aria-hidden="true">
+      <button class="modal-close" aria-label="Fechar">×</button>
+      <img src="" alt="" />
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
